@@ -30,6 +30,8 @@ import { OvernightSleepData } from '../data/overnight-sleep-data';
     IonItem,
     IonLabel,
     IonButton,
+    CommonModule,
+    FormsModule,
   ],
 })
 export class OvernightSleepPage implements OnInit {
@@ -61,9 +63,9 @@ export class OvernightSleepPage implements OnInit {
       return;
     }
 
-    const sleepData = OvernightSleepData(sleepStart, sleepEnd);
-    this.sleepService;.logOvernightData(sleepData);
-    this.message = "Overnight sleep logged successfully!";
+    const sleepData = new OvernightSleepData(sleepStart, sleepEnd);
+    this.sleepService.logOvernightData(sleepData);
+    this.message = 'Overnight sleep logged successfully!';
 
     // reset
     this.bedtime = '';
