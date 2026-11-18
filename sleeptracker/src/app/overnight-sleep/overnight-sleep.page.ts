@@ -45,7 +45,7 @@ export class OvernightSleepPage implements OnInit {
   saveSleep() {
     // confirm the user entered both bedtime & wakeup time
     if (!this.bedtime || !this.wakeUpTime) {
-      this.message = 'Please enter both bedtime and wake-up time to log.';
+      this.message = 'Please enter both bedtime and wake-up time to save.';
       return;
     }
 
