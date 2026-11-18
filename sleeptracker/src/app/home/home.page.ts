@@ -1,27 +1,59 @@
 import { Component } from '@angular/core';
-import { IonHeader, IonToolbar, IonTitle, IonContent, IonCard, IonCardHeader, IonCardTitle, IonCardSubtitle, IonCardContent, IonGrid, IonRow, IonCol, IonButton, IonButtons, IonText} from '@ionic/angular/standalone';
+import {
+  IonHeader,
+  IonToolbar,
+  IonTitle,
+  IonContent,
+  IonCard,
+  IonCardHeader,
+  IonCardTitle,
+  IonCardSubtitle,
+  IonCardContent,
+  IonGrid,
+  IonRow,
+  IonCol,
+  IonButton,
+  IonButtons,
+  IonText,
+} from '@ionic/angular/standalone';
 import { SleepService } from '../services/sleep.service';
 import { SleepData } from '../data/sleep-data';
 import { OvernightSleepData } from '../data/overnight-sleep-data';
 import { StanfordSleepinessData } from '../data/stanford-sleepiness-data';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
-  imports: [IonHeader, IonToolbar, IonTitle, IonContent, IonCard, IonCardHeader, IonCardTitle, IonCardSubtitle, IonCardContent, IonGrid, IonRow, IonCol, IonButton, IonButtons, IonText],
+  imports: [
+    IonHeader,
+    IonToolbar,
+    IonTitle,
+    IonContent,
+    IonCard,
+    IonCardHeader,
+    IonCardTitle,
+    IonCardSubtitle,
+    IonCardContent,
+    IonGrid,
+    IonRow,
+    IonCol,
+    IonButton,
+    IonButtons,
+    IonText,
+    RouterLink,
+  ],
 })
 export class HomePage {
-  constructor(public sleepService:SleepService) {
+  constructor(public sleepService: SleepService) {}
 
-	}
+  ngOnInit() {
+    console.log(this.allSleepData);
+  }
 
-	ngOnInit() {
-		console.log(this.allSleepData);
-	}
-
-	/* Ionic doesn't allow bindings to static variables, so this getter can be used instead. */
-	get allSleepData() {
-		return SleepService.AllSleepData;
-	}
+  /* Ionic doesn't allow bindings to static variables, so this getter can be used instead. */
+  get allSleepData() {
+    return SleepService.AllSleepData;
+  }
 }
