@@ -1,4 +1,4 @@
---Readme document for Charlotte Huang, CHARLYH3@UCI.EDU & *email(s)*, *UCI id(s)*--
+--Readme document for Charlotte Huang, CHARLYH3@UCI.EDU & Sarah Lee, sarahsl7@uci.edu (11842214)--
 
 1. How many assignment points do you believe you completed (replace the *'s with your numbers)?
 
