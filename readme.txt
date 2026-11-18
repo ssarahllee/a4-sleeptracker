@@ -12,16 +12,16 @@
 - */1 A readme and demo video which explains how these features were implemented and their design rationale
 
 2. How long, in hours, did it take you to complete this assignment?
-
+2
 
 
 3. What online resources did you consult when completing this assignment? (list specific URLs)
 https://www.w3schools.com/jsref/jsref_isnan.asp? 
-https://www.w3schools.com/tags/att_input_type_datetime-local.asp? 
-
+https://www.w3schools.com/tags/att_input_type_datetime-local.asp?
+https://ionicframework.com/docs/api/card
 
 4. What classmates or other individuals did you consult as part of this assignment? What did you discuss?
-
+N/A
 
 
 5. Is there anything special we need to know in order to run your code?
