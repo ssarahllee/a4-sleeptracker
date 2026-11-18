@@ -10,4 +10,8 @@ export const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full',
   },
+  {
+    path: 'overnight-sleep',
+    loadComponent: () => import('./overnight-sleep/overnight-sleep.page').then( m => m.OvernightSleepPage)
+  },
 ];
