@@ -1,13 +1,47 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>overnight-sleep</ion-title>
+    <ion-title>Overnight Sleep</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">overnight-sleep</ion-title>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/home"></ion-back-button>
+      </ion-buttons>
+      <ion-title size="large">Overnight Sleep</ion-title>
     </ion-toolbar>
   </ion-header>
+
+  <div class="ion-padding">
+    <h2>Log Your Sleep</h2>
+    <p>Enter when you went to bed and when you woke up.</p>
+
+    <!-- bedtime -->
+    <ion-item>
+      <ion-label position="stacked">Bedtime</ion-label>
+      <input type="datetime-local" [(ngModel)]="bedtime" aria-label="Bedtime" />
+    </ion-item>
+
+    <!-- wake up time -->
+    <ion-item>
+      <ion-label position="stacked">Wake-Up Time</ion-label>
+      <input
+        type="datetime-local"
+        [(ngModel)]="wakeUpTime"
+        aria-label="Wake-Up Time"
+      />
+    </ion-item>
+
+    <!-- save button -->
+    <ion-button expand="block" (click)="saveSleep()">
+      Save Sleep Log
+    </ion-button>
+
+    <!-- feedback popup -->
+    @if (message) {
+    <p>{{ message }}</p>
+    }
+  </div>
 </ion-content>
