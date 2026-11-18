@@ -1,4 +1,4 @@
---Readme document for *author(s)*, *email(s)*, *UCI id(s)*--
+--Readme document for Charlotte Huang, CHARLYH3@UCI.EDU & *email(s)*, *UCI id(s)*--
 
 1. How many assignment points do you believe you completed (replace the *'s with your numbers)?
 
