@@ -1,3 +1,4 @@
+import { SleepService } from './../services/sleep.service';
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -12,7 +13,6 @@ import {
   IonLabel,
   IonButton,
 } from '@ionic/angular/standalone';
-import { SleepService } from '../services/sleep.service';
 import { OvernightSleepData } from '../data/overnight-sleep-data';
 
 @Component({
@@ -25,12 +25,48 @@ import { OvernightSleepData } from '../data/overnight-sleep-data';
     IonHeader,
     IonTitle,
     IonToolbar,
-    CommonModule,
-    FormsModule,
+    IonButtons,
+    IonBackButton,
+    IonItem,
+    IonLabel,
+    IonButton,
   ],
 })
 export class OvernightSleepPage implements OnInit {
-  constructor() {}
+  bedtime: string = '';
+  wakeUpTime: string = '';
+  message: string = '';
+  constructor(private sleepService: SleepService) {}
 
   ngOnInit() {}
+
+  saveSleep() {
+    // confirm the user entered both bedtime & wakeup time
+    if (!this.bedtime || !this.wakeUpTime) {
+      this.message = 'Please enter both bedtime and wake-up time to log.';
+      return;
+    }
+
+    // convert strings to Date objects
+    const sleepStart = new Date(this.bedtime);
+    const sleepEnd = new Date(this.wakeUpTime);
+
+    // make sure the date is valid, like sleepEnd can't be before sleepStart
+    if (
+      isNaN(sleepStart.getTime()) ||
+      isNaN(sleepEnd.getTime()) ||
+      sleepEnd <= sleepStart
+    ) {
+      this.message = 'Invalid. The wake-up time must be after bedtime.';
+      return;
+    }
+
+    const sleepData = OvernightSleepData(sleepStart, sleepEnd);
+    this.sleepService;.logOvernightData(sleepData);
+    this.message = "Overnight sleep logged successfully!";
+
+    // reset
+    this.bedtime = '';
+    this.wakeUpTime = '';
+  }
 }
