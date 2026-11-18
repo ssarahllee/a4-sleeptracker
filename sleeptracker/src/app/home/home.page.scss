@@ -25,3 +25,15 @@
 #container a {
   text-decoration: none;
 }
+
+ion-card-title {
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+}
+
+.compact-card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
