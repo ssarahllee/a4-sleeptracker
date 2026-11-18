@@ -1,4 +1,4 @@
---Readme document for Charlotte Huang, CHARLYH3@UCI.EDU & Sarah Lee, sarahsl7@uci.edu (11842214)--
+--Readme document for Charlotte Huang, CHARLYH3@UCI.EDU (85298239) & Sarah Lee, sarahsl7@uci.edu (11842214)--
 
 1. How many assignment points do you believe you completed (replace the *'s with your numbers)?
 
