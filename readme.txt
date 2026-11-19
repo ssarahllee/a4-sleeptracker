@@ -12,7 +12,7 @@
 - */1 A readme and demo video which explains how these features were implemented and their design rationale
 
 2. How long, in hours, did it take you to complete this assignment?
-2
+5
 
 
 3. What online resources did you consult when completing this assignment? (list specific URLs)
@@ -51,7 +51,10 @@ N/A
 
 
 10. How can a person view the data they logged in your app? Why did you choose to support viewing logged data in this way?
-
+We organized the overnight sleep and sleepiness logs using collapsible sections, so that in the case where the data gets long,
+the user can reduce the scrolling and just focus on the category they're interested in viewing. The overnight sleep log shows
+entries of the user's bedtime, wake-up time, and total hours of sleep (so that the user doesn't need to manually count it), 
+and the sleepiness section shows the rating the user personally inputted in the daytime.
 
 
 11. Which feature choose--using a native device resource, backing up logged data, or both?
