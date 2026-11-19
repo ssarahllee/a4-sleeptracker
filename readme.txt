@@ -21,6 +21,8 @@ https://www.w3schools.com/tags/att_input_type_datetime-local.asp
 https://ionicframework.com/docs/api/card
 https://www.w3schools.com/jsref/jsref_tolocaletimestring.asp
 https://ionicframework.com/docs/angular/lifecycle 
+https://ionicframework.com/docs/api/content
+https://ionicframework.com/docs/api/accordion
 
 4. What classmates or other individuals did you consult as part of this assignment? What did you discuss?
 N/A

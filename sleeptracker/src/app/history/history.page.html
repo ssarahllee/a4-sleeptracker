@@ -1,13 +1,60 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
     <ion-title>History</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">history</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="ion-padding">
+  <h2>Your History</h2>
+  <p>Tap a category to view your past logs.</p>
+
+  <ion-accordion-group>
+    <!-- overnight sleep -->
+    <ion-accordion value="overnight">
+      <ion-item slot="header">
+        <ion-label>Overnight Sleep</ion-label>
+      </ion-item>
+
+      <div slot="content">
+        <ion-list>
+          @for (log of overnightLogs; track log.id) {
+          <ion-item>
+            <ion-label class="ion-text-wrap">
+              <h2>{{ log.dateString() }}</h2>
+              <p>Bedtime: {{ log.bedtimeString() }}</p>
+              <p>Wake-up Time: {{ log.wakeUpString() }}</p>
+              <p>Total Sleep: {{ log.summaryString() }}</p>
+            </ion-label>
+          </ion-item>
+          } @empty {
+          <p class="ion-padding">No overnight sleep logs yet.</p>
+          }
+        </ion-list>
+      </div>
+    </ion-accordion>
+    <!-- sleepiness -->
+    <ion-accordion value="sleepiness">
+      <ion-item slot="header">
+        <ion-label>Daytime Sleepiness</ion-label>
+      </ion-item>
+
+      <div slot="content">
+        <ion-list>
+          @for (log of sleepinessLogs; track log.id) {
+          <ion-item>
+            <ion-label class="ion-text-wrap">
+              <h2>{{ log.dateString() }}</h2>
+              <p>Sleepiness Level: {{ log.summaryString() }}</p>
+            </ion-label>
+          </ion-item>
+          } @empty {
+          <p class="ion-padding">No daytime sleepiness logs yet.</p>
+          }
+        </ion-list>
+      </div>
+    </ion-accordion>
+  </ion-accordion-group>
 </ion-content>
