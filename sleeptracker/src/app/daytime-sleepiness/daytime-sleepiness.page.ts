@@ -17,12 +17,12 @@ export class DaytimeSleepinessPage implements OnInit {
   sleepinessLevel: number | null = null;
   sleepinessOptions = [
   { level: 1, description: 'Feeling active and vital' },
-  { level: 2, description: 'Functioning at a high level' },
-  { level: 3, description: 'Relaxed but awake' },
+  { level: 2, description: 'Functioning at a high level, but not peak' },
+  { level: 3, description: 'Awake but relaxed' },
   { level: 4, description: 'Somewhat foggy' },
   { level: 5, description: 'Foggy and losing interest' },
   { level: 6, description: 'Sleepy and fighting sleep' },
-  { level: 7, description: 'Almost asleep' }
+  { level: 7, description: 'Sleep onset soon' }
   ];
   useCurrentTime = true;
   currentTime = new Date();
@@ -48,7 +48,7 @@ export class DaytimeSleepinessPage implements OnInit {
     });
   }
 
-  saveEntry() {
+  async saveEntry() {
     if (this.sleepinessLevel === null) {
       this.message = 'Please select a sleepiness rating.';
       return;
@@ -60,7 +60,7 @@ export class DaytimeSleepinessPage implements OnInit {
 
       const sleepData = new StanfordSleepinessData(this.sleepinessLevel, timestamp);
       // use SleepService to saved the logs
-      this.sleepService.logSleepinessData(sleepData);
+      await this.sleepService.logSleepinessData(sleepData);
 
       this.message = 'Daytime sleepiness rating logged successfully!';
       this.sleepinessLevel = null; // resets after save is successful

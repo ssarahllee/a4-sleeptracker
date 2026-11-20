@@ -16,13 +16,20 @@ export class SleepService {
   private overnightKey: string = 'overnightLogs';
   private overnightLoaded: Promise<void>;
 
+  private sleepinessKey = 'sleepiness-data';
+  private sleepinessLoaded: Promise<void>;
+
   constructor() {
     this.overnightLoaded = this.loadSavedData();
+    this.sleepinessLoaded = this.loadSavedData();
   }
   // retrieve saved values
   private async loadSavedData(): Promise<void> {
     const overnight = await Preferences.get({
       key: this.overnightKey,
+    });
+    const sleepiness = await Preferences.get({
+      key: this.sleepinessKey,
     });
     // Check if saved overnight logs exist
     if (overnight.value != null) {
@@ -38,6 +45,22 @@ export class SleepService {
         return record;
       });
       for (const log of SleepService.AllOvernightData) {
+        SleepService.AllSleepData.push(log);
+      }
+    }
+    // Check if saved daytime sleepiness logs exist
+    if (sleepiness.value != null) {
+      const savedLogs = JSON.parse(sleepiness.value);
+      // Restore saved daytime sleepiness records
+      SleepService.AllSleepinessData = savedLogs.map((log: any) => {
+        const record = new StanfordSleepinessData(
+          log.loggedValue,
+          new Date(log.loggedAt)
+        );
+        record.id = log.id;
+        return record;
+      });
+      for (const log of SleepService.AllSleepinessData) {
         SleepService.AllSleepData.push(log);
       }
     }
@@ -83,8 +106,19 @@ export class SleepService {
     }
   }
 
-  public logSleepinessData(sleepData: StanfordSleepinessData) {
+  public async logSleepinessData(sleepData: StanfordSleepinessData): Promise<void> {
+    await this.sleepinessLoaded;
     SleepService.AllSleepData.push(sleepData);
     SleepService.AllSleepinessData.push(sleepData);
+    try {
+      await Preferences.set({
+        key: this.sleepinessKey,
+        value: JSON.stringify(SleepService.AllSleepinessData),
+      });
+      console.log('Sleepiness log saved');
+    } catch (e) {
+      console.log(e);
+      throw e;
+    }
   }
 }
