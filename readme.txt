@@ -25,6 +25,8 @@ https://ionicframework.com/docs/api/content
 https://ionicframework.com/docs/api/accordion
 https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_scroll_snap
 https://ionicframework.com/docs/api/picker
+https://capacitorjs.com/docs/v7/apis/preferences 
+https://www.w3schools.com/js/js_json_stringify.asp
 
 
 4. What classmates or other individuals did you consult as part of this assignment? What did you discuss?
