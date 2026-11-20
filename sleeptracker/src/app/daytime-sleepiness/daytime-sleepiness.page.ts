@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonContent, IonHeader, IonTitle, IonToolbar, IonButtons, IonBackButton, IonItem, IonLabel, IonToggle, IonDatetime, IonButton, IonCard, IonCardContent} from '@ionic/angular/standalone';
+import { StanfordSleepinessData } from '../data/stanford-sleepiness-data';
+import { SleepService } from '../services/sleep.service';
 
 @Component({
   selector: 'app-daytime-sleepiness',
@@ -25,8 +27,9 @@ export class DaytimeSleepinessPage implements OnInit {
   useCurrentTime = true;
   currentTime = new Date();
   selectedTime = new Date().toISOString();
+  message: string = '';
 
-  constructor() { }
+  constructor(private sleepService: SleepService) { }
 
   ngOnInit() {
     setInterval(() => {
@@ -44,16 +47,20 @@ export class DaytimeSleepinessPage implements OnInit {
   }
 
   saveEntry() {
-    const timestamp = this.useCurrentTime
-      ? new Date().toISOString()
-      : this.selectedTime;
+    if (this.sleepinessLevel === null) {
+      this.message = 'Please select a sleepiness rating.';
+      return;
+    }
 
-    const entry = {
-      time: timestamp,
-      sleepiness: this.sleepinessLevel
-    };
+      const timestamp = this.useCurrentTime
+      ? new Date()
+      : new Date(this.selectedTime);
 
-    console.log(entry);
+      const sleepData = new StanfordSleepinessData(this.sleepinessLevel, timestamp);
+      // use SleepService to saved the logs
+      this.sleepService.logSleepinessData(sleepData);
+
+      this.message = 'Sleepiness rating logged successfully!';
   }
 
 }
