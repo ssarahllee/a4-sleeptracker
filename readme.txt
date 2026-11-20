@@ -79,7 +79,7 @@ and the sleepiness section shows the rating the user personally inputted in the 
 
 
 11. Which feature choose--using a native device resource, backing up logged data, or both?
-
+We chose the feature of backing up logged data.
 
 
 12. If you used a native device resource, what feature did you add? How does this feature change the app's experience for a user?
@@ -87,6 +87,8 @@ N/A
 
 
 13. If you backed up logged data, where does it back up to?
-
+We decided to use Capacitor Preferences to back up data locally on the users' device, meaning it uses the browsers' localStoragen
+when running the app on the web. The data is saved as a JSON so that it can be retrieved and displayed on the history page even 
+when the user repoens or refreshes the application.
 
 14. How does your app implement or follow principles of good mobile design?
