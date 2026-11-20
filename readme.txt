@@ -4,8 +4,6 @@ to-do list
 - saving name function
 - good morning/night function on home page
 - save daytime sleepiness to backed up history
-- insert images for homepage
-- come with a name for the app
 - ui cleanup
 
 1. How many assignment points do you believe you completed (replace the *'s with your numbers)?

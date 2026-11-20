@@ -4,7 +4,7 @@
       <ion-buttons slot="start">
         <ion-back-button defaultHref="/home"></ion-back-button>
       </ion-buttons>
-      <ion-title>App Name Here?</ion-title>
+      <div class="app-title">SleepO</div>
     </ion-toolbar>
   </ion-header>
 
@@ -13,7 +13,7 @@
     <p>Enter when you went to bed and when you woke up.</p>
 
     <!-- bedtime -->
-    <ion-item class="bedtime-section">
+    <ion-item class="bedtime-section" lines="none">
       <ion-label class="time-label" position="stacked">Bedtime</ion-label>
       <input type="datetime-local" [(ngModel)]="bedtime" aria-label="Bedtime" />
     </ion-item>

@@ -34,7 +34,7 @@
 
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
-@import '@ionic/angular/css/palettes/dark.system.css';
+@import "@ionic/angular/css/palettes/dark.system.css";
 
 ion-radio.filled-radio::part(container) {
   width: 20px;
@@ -53,4 +53,20 @@ ion-radio.filled-radio.radio-checked::part(mark) {
   height: 8px;
   border-radius: 50%;
   background-color: #ffffff;
+}
+
+.app-title {
+  font-size: 40px;
+  font-weight: bold;
+  color: white;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 120px;
+}
+
+ion-toolbar {
+  --background: #252d40;
+  position: relative;
 }
