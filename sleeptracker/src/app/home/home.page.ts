@@ -50,17 +50,17 @@ export class HomePage {
   // name:string="";
   // nameKey:string;
   constructor(public sleepService: SleepService) {
-  // Preferences.get({
-  //   key: this.nameKey
-  // }).then((resultName) => {
-  //   if(resultName.value)
-  //   {
-  //     console.log("real")
-      // this.nameSaved.set(true);
-  //   }
-  // });
+    // Preferences.get({
+    //   key: this.nameKey
+    // }).then((resultName) => {
+    //   if(resultName.value)
+    //   {
+    //     console.log("real")
+    // this.nameSaved.set(true);
+    //   }
+    // });
   }
-  
+
   async saveName() {
     // await Preferences.set({
     //   key: this.nameKey,
