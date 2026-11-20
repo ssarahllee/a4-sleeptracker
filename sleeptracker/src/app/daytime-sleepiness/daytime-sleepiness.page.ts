@@ -26,7 +26,7 @@ export class DaytimeSleepinessPage implements OnInit {
   ];
   useCurrentTime = true;
   currentTime = new Date();
-  selectedTime = new Date().toISOString();
+  selectedTime = '';
   message: string = '';
 
   constructor(private sleepService: SleepService) { }
@@ -39,6 +39,8 @@ export class DaytimeSleepinessPage implements OnInit {
 
   selectSleepiness(level:number, element: HTMLElement) {
     this.sleepinessLevel = level;
+
+    this.message = ''; // clear old message when selection changes
 
     element.scrollIntoView({
       behavior: 'smooth',
@@ -60,8 +62,8 @@ export class DaytimeSleepinessPage implements OnInit {
       // use SleepService to saved the logs
       this.sleepService.logSleepinessData(sleepData);
 
+      this.message = 'Daytime sleepiness rating logged successfully!';
       this.sleepinessLevel = null; // resets after save is successful
-      this.message = 'Sleepiness rating logged successfully!';
   }
 
 }

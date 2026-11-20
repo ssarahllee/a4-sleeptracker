@@ -21,8 +21,16 @@
       <ion-label class="time-label" position="stacked">Custom Time</ion-label>
       <ion-datetime
         presentation="date-time"
-        [(ngModel)]="selectedTime">
+        [value]="selectedTime"
+        (ionChange)="selectedTime = $any($event.detail.value);
+        hasSelectedTime = true">
       </ion-datetime>
+    </ion-item>
+
+    <ion-item *ngIf="!useCurrentTime && selectedTime">
+      <ion-label class="time-label">
+        Selected Time: {{ selectedTime | date:'short' }}
+      </ion-label>
     </ion-item>
 
     <ion-item *ngIf="useCurrentTime">
@@ -31,10 +39,12 @@
       </ion-label>
     </ion-item>
 
+  <!-- spacer -->
     <div class="spacer"></div>
 
-    <p>Rate your daytime sleepiness below.</p>
     <!-- log rating of sleepiness -->
+    <p>Rate your daytime sleepiness below.</p>
+
     <div class="wheel-container">
       <div
         *ngFor="let option of sleepinessOptions" 
@@ -57,7 +67,7 @@
         Save Sleepiness Rating
       </ion-button>
     </div>
-    
+
     <!-- feedback popup -->
     @if (message) {
     <p>{{ message }}</p>

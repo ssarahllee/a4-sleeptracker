@@ -46,8 +46,9 @@
           @for (log of sleepinessLogs; track log.id) {
           <ion-item>
             <ion-label class="ion-text-wrap">
-              <h2>{{ log.dateString() }}</h2>
-              <p>Sleepiness Level: {{ log.summaryString() }}</p>
+              <h2>{{ log.dateString()}}</h2>
+              <p>Time of Rating: {{ log.timeString()}}</p>
+              <p>Sleepiness Rating: {{ log.summaryString() }}</p>
             </ion-label>
           </ion-item>
           } @empty {
