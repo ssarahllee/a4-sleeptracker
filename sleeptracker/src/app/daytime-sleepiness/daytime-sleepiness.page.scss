@@ -8,24 +8,53 @@
     height: 48px;
 }
 
-.sleepiness-card {
-  cursor: pointer;
-  margin-bottom: 12px;
-  border: 2px solid #dcdcdc;
-  border-radius: 12px;
+.wheel-container {
+  height: 240px;
+  overflow-y: auto;
 
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+
+  display: flex;
+  flex-direction: column;
+
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 20%,
+    black 80%,
+    transparent 100%
+  );
+}
+
+.wheel-item {
+  scroll-snap-align: center;
+  min-height: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.35;
   transition: all 0.2s ease;
+  cursor: pointer;
 }
 
-.sleepiness-card.selected {
-  border-color: var(--ion-color-primary);
-  background: var(--ion-color-primary);
-  color: white;
+.wheel-item.selected {
+  opacity: 1;
+  transform: scale(1.1);
+  color: var(--ion-color-primary);
+  font-weight: bold;
 }
 
-.sleepiness-card.selected ion-card-content {
-  color: white;
+.level {
+  font-size: 2rem;
 }
+
+.description {
+  font-size: 0.9rem;
+  text-align: center;
+}
+
 
 .save-button-container {
   text-align: center;

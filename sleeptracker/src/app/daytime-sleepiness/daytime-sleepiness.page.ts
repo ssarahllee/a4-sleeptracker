@@ -34,6 +34,15 @@ export class DaytimeSleepinessPage implements OnInit {
     }, 1000);
   }
 
+  selectSleepiness(level:number, element: HTMLElement) {
+    this.sleepinessLevel = level;
+
+    element.scrollIntoView({
+      behavior: 'smooth',
+      block: 'center'
+    });
+  }
+
   saveEntry() {
     const timestamp = this.useCurrentTime
       ? new Date().toISOString()
