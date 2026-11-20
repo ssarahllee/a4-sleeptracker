@@ -4,7 +4,7 @@
       <ion-buttons slot="start">
         <ion-back-button defaultHref="/home"></ion-back-button>
       </ion-buttons>
-      <ion-title>App Name Here?</ion-title>
+      <div class="app-title">SleepO</div>
     </ion-toolbar>
   </ion-header>
 
@@ -13,7 +13,9 @@
 
     <!-- log time of sleepiness -->
     <ion-item>
-      <ion-label class="time-label" position="stacked">Use Current Time</ion-label>
+      <ion-label class="time-label" position="stacked"
+        >Use Current Time</ion-label
+      >
       <ion-toggle [(ngModel)]="useCurrentTime"></ion-toggle>
     </ion-item>
 
@@ -21,9 +23,7 @@
       <ion-label class="time-label" position="stacked">Custom Time</ion-label>
       <ion-datetime
         presentation="date-time"
-        [value]="selectedTime"
-        (ionChange)="selectedTime = $any($event.detail.value);
-        hasSelectedTime = true">
+        [(ngModel)]="selectedTime">
       </ion-datetime>
     </ion-item>
 
@@ -47,21 +47,20 @@
 
     <div class="wheel-container">
       <div
-        *ngFor="let option of sleepinessOptions" 
+        *ngFor="let option of sleepinessOptions"
         #wheelItem
         class="wheel-item"
         [class.selected]="sleepinessLevel === option.level"
-        (click)="selectSleepiness(option.level, wheelItem)">
-
+        (click)="selectSleepiness(option.level, wheelItem)"
+      >
         <div class="level">{{ option.level }}</div>
         <div class="description">{{ option.description }}</div>
-
       </div>
     </div>
 
-  <!-- leave additional comment about sleepiness -->
+    <!-- leave additional comment about sleepiness -->
 
-  <!-- save sleepiness -->
+    <!-- save sleepiness -->
     <div class="save-button-container">
       <ion-button size="medium" (click)="saveEntry()">
         Save Sleepiness Rating
@@ -72,8 +71,5 @@
     @if (message) {
     <p>{{ message }}</p>
     }
-
   </div>
-
-
 </ion-content>

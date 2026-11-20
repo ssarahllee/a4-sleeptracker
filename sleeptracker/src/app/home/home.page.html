@@ -1,7 +1,7 @@
 <ion-content [fullscreen]="true">
   <ion-header [translucent]="true">
     <ion-toolbar>
-      <ion-title>App Name Here?</ion-title>
+      <div class="app-title">SleepO</div>
     </ion-toolbar>
   </ion-header>
 
@@ -20,8 +20,9 @@
             routerLink="/overnight-sleep"
           >
             <img
-              alt="Silhouette of mountains"
-              src="https://ionicframework.com/docs/img/demos/card-media.png"
+              class="card-image"
+              src="assets/images/overnight-sleep.png"
+              alt="Animation of person sleeping in bed"
             />
             <ion-card-header>
               <ion-card-title>Overnight Sleep</ion-card-title>
@@ -31,10 +32,15 @@
         </ion-col>
 
         <ion-col size="12">
-          <ion-card class="compact-card" button="true" routerLink="/daytime-sleepiness">
+          <ion-card
+            class="compact-card"
+            button="true"
+            routerLink="/daytime-sleepiness"
+          >
             <img
-              alt="Silhouette of mountains"
-              src="https://ionicframework.com/docs/img/demos/card-media.png"
+              class="card-image"
+              src="assets/images/sleepiness.png"
+              alt="Animation of person falling asleep at his desk"
             />
             <ion-card-header>
               <ion-card-title>Sleepiness</ion-card-title>
@@ -50,11 +56,12 @@
         <ion-col size="12">
           <ion-card class="compact-card" button="true" routerLink="/history">
             <img
-              alt="Silhouette of mountains"
-              src="https://ionicframework.com/docs/img/demos/card-media.png"
+              class="card-image"
+              src="assets/images/history.png"
+              alt="Animation of a clock and a person falling alseep on it"
             />
             <ion-card-header>
-              <ion-card-title>Sleep History</ion-card-title>
+              <ion-card-title>Your History</ion-card-title>
               <ion-card-subtitle
                 >View and edit your sleep activity.</ion-card-subtitle
               >
@@ -62,9 +69,6 @@
           </ion-card>
         </ion-col>
       </ion-row>
-
     </ion-grid>
-
   </div>
-
 </ion-content>
