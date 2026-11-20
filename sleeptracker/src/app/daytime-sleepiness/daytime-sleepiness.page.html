@@ -9,7 +9,7 @@
   </ion-header>
 
   <div class="ion-padding">
-    <h2>Sleepiness</h2>
+    <h2><strong>Sleepiness</strong></h2>
     <p>Rate your daytime sleepiness.</p>
 
     <!-- log time of sleepiness -->
@@ -31,6 +31,13 @@
         Current Time: {{ currentTime | date:'short' }}
       </ion-label>
     </ion-item>
+
+      <!-- save time and date -->
+    <div class="save-button-container">
+      <ion-button size="medium" (click)="saveEntry()">
+        Save Time and Date
+      </ion-button>
+    </div>
 
     <!-- log rating of sleepiness -->
     <ion-radio-group [(ngModel)]="sleepinessLevel">
