@@ -1,0 +1,22 @@
+ion-radio.filled-radio {
+  --color: #94a3b8;
+  --color-checked: #3880ff;
+}
+
+ion-radio.filled-radio::part(container) {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 2px solid #94a3b8;
+  background: transparent;
+}
+
+ion-radio.filled-radio.radio-checked::part(container) {
+  border-color: #3880ff;
+  background: #3880ff;
+}
+
+ion-radio.filled-radio.radio-checked::part(mark) {
+  background: #ffffff;
+  border-radius: 50%;
+}
