@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { Preferences } from '@capacitor/preferences';
 import {
   IonHeader,
   IonToolbar,
@@ -46,7 +47,27 @@ import { StanfordSleepinessData } from '../data/stanford-sleepiness-data';
   ],
 })
 export class HomePage {
-  constructor(public sleepService: SleepService) {}
+  // name:string="";
+  // nameKey:string;
+  constructor(public sleepService: SleepService) {
+  // Preferences.get({
+  //   key: this.nameKey
+  // }).then((resultName) => {
+  //   if(resultName.value)
+  //   {
+  //     console.log("real")
+      // this.nameSaved.set(true);
+  //   }
+  // });
+  }
+  
+  async saveName() {
+    // await Preferences.set({
+    //   key: this.nameKey,
+    //   value: this.name
+    // });
+    // console.log('saved name: ${this.name}');
+  }
 
   ngOnInit() {
     console.log(this.allSleepData);
