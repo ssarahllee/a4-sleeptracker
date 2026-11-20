@@ -6,17 +6,17 @@ to-do list
 
 1. How many assignment points do you believe you completed (replace the *'s with your numbers)?
 
-*/10
+9/10
 - 1/1 The ability to log overnight sleep
 - 1/1 The ability to log sleepiness during the day
 - 1/1 The ability to view these two categories of logged data
-- */2 Either using a native device resource or backing up logged data
-- */2 Following good principles of mobile design
-- */2 Creating a compelling app
+- 2/2 Either using a native device resource or backing up logged data
+- 2/2 Following good principles of mobile design
+- 2/2 Creating a compelling app
 - */1 A readme and demo video which explains how these features were implemented and their design rationale
 
 2. How long, in hours, did it take you to complete this assignment?
-11
+13
 
 
 3. What online resources did you consult when completing this assignment? (list specific URLs)
@@ -91,3 +91,7 @@ when running the app on the web. The data is saved as a JSON so that it can be r
 when the user repoens or refreshes the application.
 
 14. How does your app implement or follow principles of good mobile design?
+Our app implements principles of good mobile design by incorporating a clear visual hierarchy through action cards, a sufficient
+color contrast for accessibility, error prevention date/time pickers, as well as error messages that clearly explain to the user 
+what went wrong so that they can properly save their logs. We also use design components, like the homepage cards and
+collapsible sections in the history, to naintain design consistency ad styling.
