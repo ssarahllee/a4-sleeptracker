@@ -28,7 +28,6 @@ export class SleepService {
     // Check if saved overnight logs exist
     if (overnight.value != null) {
       const savedLogs = JSON.parse(overnight.value);
-
       // Restore saved overnight sleep records
       SleepService.AllOvernightData = savedLogs.map((log: any) => {
         const record = new OvernightSleepData(
@@ -41,6 +40,11 @@ export class SleepService {
       });
       SleepService.AllSleepData.push(...SleepService.AllOvernightData);
     }
+  }
+
+  // wait until preferences finishes up loading the overnight data
+  public async whenReady(): Promise<void> {
+    await this.overnightLoaded;
   }
 
   private addDefaultData() {

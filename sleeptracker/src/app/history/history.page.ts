@@ -41,13 +41,14 @@ export class HistoryPage implements OnInit {
   overnightLogs: OvernightSleepData[] = [];
   sleepinessLogs: StanfordSleepinessData[] = [];
 
-  constructor() {}
+  constructor(private sleepService: SleepService) {}
 
   ngOnInit() {}
 
   // get the records from SleepService
-  ionViewWillEnter() {
-    this.overnightLogs = SleepService.AllOvernightData;
+  async ionViewWillEnter() {
+    await this.sleepService.whenReady();
+    this.overnightLogs = [...SleepService.AllOvernightData];
     this.sleepinessLogs = SleepService.AllSleepinessData;
   }
 }
