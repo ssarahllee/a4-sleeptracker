@@ -34,7 +34,7 @@ N/A
 
 
 5. Is there anything special we need to know in order to run your code?
-
+N/A
 
 --Aim for no more than two sentences for each of the following questions.--
 
@@ -48,7 +48,8 @@ N/A
 
 
 8. How can a person log overnight sleep in your app? Why did you choose to support logging overnight sleep in this way?
-
+A person can log their overnight sleep by selecting their bedtime and wake-up date and time using the calendar (date/time) picker
+and then pressing the "Save Sleep Log" button. We chose to support logging overnight sleep in this way because 
 
 
 9. How can a person log sleepiness during the day in your app? Why did you choose to support logging sleepiness in this way?
