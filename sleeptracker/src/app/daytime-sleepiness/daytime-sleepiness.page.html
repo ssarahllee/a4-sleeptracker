@@ -8,10 +8,21 @@
     </ion-toolbar>
   </ion-header>
 
-<div class="ion-padding">
+  <div class="ion-padding">
     <h2>Sleepiness</h2>
     <p>Rate your daytime sleepiness.</p>
 
+    <ion-list>
+    <ion-radio-group [(ngModel)]="sleepinessLevel">
+      <ion-item *ngFor="let option of sleepinessOptions">
+        <ion-label>
+          {{ option.level }} - {{ option.description }}
+        </ion-label>
+        <ion-radio slot="start" [value]="option.level"></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+  </ion-list>
   </div>
+
 
 </ion-content>
