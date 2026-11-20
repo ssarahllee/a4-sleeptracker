@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { SleepData } from '../data/sleep-data';
 import { OvernightSleepData } from '../data/overnight-sleep-data';
 import { StanfordSleepinessData } from '../data/stanford-sleepiness-data';
+import { Preferences } from '@capacitor/preferences';
 
 @Injectable({
   providedIn: 'root',
@@ -12,10 +13,33 @@ export class SleepService {
   public static AllOvernightData: OvernightSleepData[] = [];
   public static AllSleepinessData: StanfordSleepinessData[] = [];
 
+  private overnightKey: string = 'overnightLogs';
+  private overnightLoaded: Promise<void>;
+
   constructor() {
-    if (SleepService.LoadDefaultData) {
-      this.addDefaultData();
-      SleepService.LoadDefaultData = false;
+    this.overnightLoaded = this.loadSavedData();
+  }
+  // retrieve saved values
+
+  private async loadSavedData(): Promise<void> {
+    const overnight = await Preferences.get({
+      key: this.overnightKey,
+    });
+    // Check if saved overnight logs exist
+    if (overnight.value != null) {
+      const savedLogs = JSON.parse(overnight.value);
+
+      // Restore saved overnight sleep records
+      SleepService.AllOvernightData = savedLogs.map((log: any) => {
+        const record = new OvernightSleepData(
+          new Date(log.sleepStart),
+          new Date(log.sleepEnd),
+        );
+        record.id = log.id;
+        record.loggedAt = new Date(log.loggedAt);
+        return record;
+      });
+      SleepService.AllSleepData.push(...SleepService.AllOvernightData);
     }
   }
 
@@ -38,9 +62,20 @@ export class SleepService {
     this.logOvernightData(new OvernightSleepData(goToBed, wakeUp));
   }
 
-  public logOvernightData(sleepData: OvernightSleepData) {
+  public async logOvernightData(sleepData: OvernightSleepData): Promise<void> {
+    await this.overnightLoaded;
     SleepService.AllSleepData.push(sleepData);
     SleepService.AllOvernightData.push(sleepData);
+    try {
+      await Preferences.set({
+        key: this.overnightKey,
+        value: JSON.stringify(SleepService.AllOvernightData),
+      });
+      console.log('Overnight sleep logs saved');
+    } catch (e) {
+      console.log(e);
+      throw e;
+    }
   }
 
   public logSleepinessData(sleepData: StanfordSleepinessData) {

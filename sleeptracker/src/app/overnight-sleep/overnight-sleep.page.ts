@@ -42,7 +42,7 @@ export class OvernightSleepPage implements OnInit {
 
   ngOnInit() {}
 
-  saveSleep() {
+  async saveSleep() {
     // confirm the user entered both bedtime & wakeup time
     if (!this.bedtime || !this.wakeUpTime) {
       this.message = 'Please enter both bedtime and wake-up time to save.';
@@ -64,11 +64,21 @@ export class OvernightSleepPage implements OnInit {
     }
 
     const sleepData = new OvernightSleepData(sleepStart, sleepEnd);
-    this.sleepService.logOvernightData(sleepData);
-    this.message = 'Overnight sleep logged successfully!';
+    // use SleepService to saved the logs
+    try {
+      await this.sleepService.logOvernightData(sleepData);
 
-    // reset
-    this.bedtime = '';
-    this.wakeUpTime = '';
+      this.message = 'Overnight sleep logged successfully!';
+
+      // reset
+      this.bedtime = '';
+      this.wakeUpTime = '';
+    } catch (e) {
+      this.message = 'Unable to save your sleep log.';
+      console.log(e);
+    }
+
+    //this.sleepService.logOvernightData(sleepData);
+    //this.message = 'Overnight sleep logged successfully!';
   }
 }
