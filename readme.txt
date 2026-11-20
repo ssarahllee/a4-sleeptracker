@@ -36,6 +36,11 @@ https://ionicframework.com/docs/api/picker
 https://capacitorjs.com/docs/v7/apis/preferences 
 https://www.w3schools.com/js/js_json_stringify.asp
 
+images:
+overnight sleep cover: https://www.shutterstock.com/image-vector/young-woman-sleeping-bed-night-healthy-2771396145?trackingId=7326656c-5561-43fa-9ae9-859651261277&listId=searchResults
+sleepiness cover: https://www.shutterstock.com/image-vector/man-work-late-night-sleepy-person-2186699475?trackingId=ac9f6df6-90ad-4663-a636-9af746f25ed6&listId=searchResults
+your history cover: https://www.shutterstock.com/image-vector/procrastination-do-later-put-off-until-2732770451?trackingId=5e93eb78-9fe5-4c3f-8e88-f12956278e5f&listId=searchResults
+
 
 4. What classmates or other individuals did you consult as part of this assignment? What did you discuss?
 N/A
