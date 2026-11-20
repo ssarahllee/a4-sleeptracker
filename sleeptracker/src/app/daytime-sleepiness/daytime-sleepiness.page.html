@@ -16,9 +16,11 @@
     <ion-radio-group [(ngModel)]="sleepinessLevel">
       <ion-item *ngFor="let option of sleepinessOptions">
         <ion-label>
-          {{ option.level }} - {{ option.description }}
+          
         </ion-label>
-        <ion-radio slot="start" [value]="option.level" class="filled-radio" mode="md"></ion-radio>
+        <ion-radio mode="md" labelPlacement="end" justify="start" [value]="option.level" class="filled-radio">
+          {{ option.level }} - {{ option.description }}
+        </ion-radio>
       </ion-item>
     </ion-radio-group>
   </ion-list>

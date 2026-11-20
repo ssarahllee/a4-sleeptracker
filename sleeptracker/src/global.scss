@@ -35,3 +35,22 @@
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import '@ionic/angular/css/palettes/dark.system.css';
+
+ion-radio.filled-radio::part(container) {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid #94a3b8;
+}
+
+ion-radio.filled-radio.radio-checked::part(container) {
+  border-color: #3880ff;
+  background-color: #3880ff;
+}
+
+ion-radio.filled-radio.radio-checked::part(mark) {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #ffffff;
+}
