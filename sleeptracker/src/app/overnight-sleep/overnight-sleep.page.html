@@ -9,18 +9,18 @@
   </ion-header>
 
   <div class="ion-padding">
-    <h2>Log Your Overnight Sleep</h2>
+    <h2><strong>Log Your Overnight Sleep</strong></h2>
     <p>Enter when you went to bed and when you woke up.</p>
 
     <!-- bedtime -->
-    <ion-item>
-      <ion-label position="stacked">Bedtime</ion-label>
+    <ion-item class="bedtime-section">
+      <ion-label class="time-label" position="stacked">Bedtime</ion-label>
       <input type="datetime-local" [(ngModel)]="bedtime" aria-label="Bedtime" />
     </ion-item>
 
     <!-- wake up time -->
-    <ion-item>
-      <ion-label position="stacked">Wake-Up Time</ion-label>
+    <ion-item lines="none">
+      <ion-label class="time-label" position="stacked">Wake-Up Time</ion-label>
       <input
         type="datetime-local"
         [(ngModel)]="wakeUpTime"
@@ -29,9 +29,11 @@
     </ion-item>
 
     <!-- save button -->
-    <ion-button expand="block" (click)="saveSleep()">
-      Save Sleep Log
-    </ion-button>
+    <div class="save-button-container">
+      <ion-button size="medium" (click)="saveSleep()">
+        Save Sleep Log
+      </ion-button>
+    </div>
 
     <!-- feedback popup -->
     @if (message) {
