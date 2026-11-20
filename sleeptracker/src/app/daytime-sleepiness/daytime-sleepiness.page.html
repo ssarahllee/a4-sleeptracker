@@ -12,22 +12,34 @@
     <h2>Sleepiness</h2>
     <p>Rate your daytime sleepiness.</p>
 
-    <!-- <ion-item>
-      <ion-label position="stacked">Time</ion-label>
-    </ion-item> -->
+    <!-- log time of sleepiness -->
+    <ion-item>
+      <ion-label position="stacked">Use Current Time</ion-label>
+      <ion-toggle [(ngModel)]="useCurrentTime"></ion-toggle>
+    </ion-item>
 
-    <!-- <ion-list>
+    <ion-item *ngIf="!useCurrentTime">
+      <ion-label position="stacked">Custom Time</ion-label>
+      <ion-datetime
+        presentation="date-time"
+        [(ngModel)]="selectedTime">
+      </ion-datetime>
+    </ion-item>
+
+    <ion-item *ngIf="useCurrentTime">
+      <ion-label>
+        Current Time: {{ currentTime | date:'short' }}
+      </ion-label>
+    </ion-item>
+
+    <!-- log rating of sleepiness -->
     <ion-radio-group [(ngModel)]="sleepinessLevel">
-      <ion-item *ngFor="let option of sleepinessOptions">
-        <ion-label>
-          
-        </ion-label>
-        <ion-radio mode="md" labelPlacement="end" justify="start" [value]="option.level" class="filled-radio">
+        <ion-radio *ngFor="let option of sleepinessOptions" labelPlacement="end" justify="start" [value]="option.level" class="sleepiness-radio">
           {{ option.level }} - {{ option.description }}
-        </ion-radio>
-      </ion-item>
+      </ion-radio>
     </ion-radio-group>
-  </ion-list> -->
+
+  <!-- leave additional comment about sleepiness -->
   </div>
 
 
