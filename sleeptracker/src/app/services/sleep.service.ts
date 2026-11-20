@@ -115,6 +115,9 @@ export class SleepService {
     await this.sleepinessLoaded;
     SleepService.AllSleepData.push(sleepData);
     SleepService.AllSleepinessData.push(sleepData);
+    SleepService.AllSleepinessData.sort((a, b) => {
+      return b.getLoggedAt().getTime() - a.getLoggedAt().getTime();
+    });
     try {
       await Preferences.set({
         key: this.sleepinessKey,
