@@ -48,7 +48,7 @@ export class HistoryPage implements OnInit {
   // get the records from SleepService
   async ionViewWillEnter() {
     await this.sleepService.whenReady();
-    this.overnightLogs = [...SleepService.AllOvernightData];
+    this.overnightLogs = SleepService.AllOvernightData;
     this.sleepinessLogs = SleepService.AllSleepinessData;
   }
 }

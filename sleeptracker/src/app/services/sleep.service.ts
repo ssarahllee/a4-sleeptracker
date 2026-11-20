@@ -20,7 +20,6 @@ export class SleepService {
     this.overnightLoaded = this.loadSavedData();
   }
   // retrieve saved values
-
   private async loadSavedData(): Promise<void> {
     const overnight = await Preferences.get({
       key: this.overnightKey,
@@ -38,7 +37,9 @@ export class SleepService {
         record.loggedAt = new Date(log.loggedAt);
         return record;
       });
-      SleepService.AllSleepData.push(...SleepService.AllOvernightData);
+      for (const log of SleepService.AllOvernightData) {
+        SleepService.AllSleepData.push(log);
+      }
     }
   }
 
