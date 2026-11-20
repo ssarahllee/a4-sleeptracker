@@ -11,9 +11,9 @@ to-do list
 1. How many assignment points do you believe you completed (replace the *'s with your numbers)?
 
 */10
-- */1 The ability to log overnight sleep
-- */1 The ability to log sleepiness during the day
-- */1 The ability to view these two categories of logged data
+- 1/1 The ability to log overnight sleep
+- 1/1 The ability to log sleepiness during the day
+- 1/1 The ability to view these two categories of logged data
 - */2 Either using a native device resource or backing up logged data
 - */2 Following good principles of mobile design
 - */2 Creating a compelling app
@@ -48,16 +48,21 @@ N/A
 
 
 6. Did you design your app with a particular type of user in mind? If so, whom?
-
+We didn't design our app with a particular type of user in mind, but we wanted to created 
+designs that are minimalistic and easily accessible/usable. Our layout resembles various health
+or fitness apps, so our users would also be familiar with and enjoy those types of apps.
 
 
 7. Did you design your app specifically for iOS or Android, or both?
-
+Our app was designed specifically for iOS, as we don't have a navigation bar and emphasized the look
+of simplicity and clear hierarchy. Our UI also utilizes that of an iOS, such as a top left back button
+as well as the typography of our pages.
 
 
 8. How can a person log overnight sleep in your app? Why did you choose to support logging overnight sleep in this way?
 A person can log their overnight sleep by selecting their bedtime and wake-up date and time using the calendar (date/time) picker
-and then pressing the "Save Sleep Log" button. We chose to support logging overnight sleep in this way because 
+and then pressing the "Save Sleep Log" button. We chose to support logging overnight sleep in this way because the user
+can log both times right after they wake up, without having to remember to log the bedtime before sleeping.
 
 
 9. How can a person log sleepiness during the day in your app? Why did you choose to support logging sleepiness in this way?
@@ -76,7 +81,7 @@ and the sleepiness section shows the rating the user personally inputted in the 
 
 
 12. If you used a native device resource, what feature did you add? How does this feature change the app's experience for a user?
-
+N/A
 
 
 13. If you backed up logged data, where does it back up to?
