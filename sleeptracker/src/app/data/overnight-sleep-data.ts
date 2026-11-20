@@ -51,4 +51,7 @@ export class OvernightSleepData extends SleepData {
       minute: '2-digit',
     });
   }
+  getSleepStart(): Date {
+    return this.sleepStart;
+  }
 }

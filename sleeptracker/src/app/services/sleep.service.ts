@@ -92,8 +92,11 @@ export class SleepService {
 
   public async logOvernightData(sleepData: OvernightSleepData): Promise<void> {
     await this.overnightLoaded;
-    SleepService.AllSleepData.unshift(sleepData);
-    SleepService.AllOvernightData.unshift(sleepData);
+    SleepService.AllSleepData.push(sleepData);
+    SleepService.AllOvernightData.push(sleepData);
+    SleepService.AllOvernightData.sort((a, b) => {
+      return b.getSleepStart().getTime() - a.getSleepStart().getTime();
+    });
     try {
       await Preferences.set({
         key: this.overnightKey,
@@ -110,8 +113,8 @@ export class SleepService {
     sleepData: StanfordSleepinessData,
   ): Promise<void> {
     await this.sleepinessLoaded;
-    SleepService.AllSleepData.unshift(sleepData);
-    SleepService.AllSleepinessData.unshift(sleepData);
+    SleepService.AllSleepData.push(sleepData);
+    SleepService.AllSleepinessData.push(sleepData);
     try {
       await Preferences.set({
         key: this.sleepinessKey,
