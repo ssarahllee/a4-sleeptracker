@@ -17,5 +17,9 @@ export const routes: Routes = [
   {
     path: 'history',
     loadComponent: () => import('./history/history.page').then( m => m.HistoryPage)
+  },  {
+    path: 'daytime-sleepiness',
+    loadComponent: () => import('./daytime-sleepiness/daytime-sleepiness.page').then( m => m.DaytimeSleepinessPage)
   },
+
 ];
