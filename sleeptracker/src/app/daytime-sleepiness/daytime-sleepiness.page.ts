@@ -1,17 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar, IonButtons, IonBackButton, IonRadioGroup, IonList, IonItem, IonRadio, IonLabel} from '@ionic/angular/standalone';
+import { IonContent, IonHeader, IonTitle, IonToolbar, IonButtons, IonBackButton, IonRadioGroup, IonList, IonItem, IonRadio, IonLabel, IonToggle, IonDatetime} from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-daytime-sleepiness',
   templateUrl: './daytime-sleepiness.page.html',
   styleUrls: ['./daytime-sleepiness.page.scss'],
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonButtons, IonBackButton, IonRadioGroup, IonList, IonItem, IonRadio, IonLabel]
+  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonButtons, IonBackButton, IonRadioGroup, IonList, IonItem, IonRadio, IonLabel, IonToggle, IonDatetime]
 })
 export class DaytimeSleepinessPage implements OnInit {
 
+  sleepinessLevel: number | null = null;
   sleepinessOptions = [
   { level: 1, description: 'Feeling active and vital' },
   { level: 2, description: 'Functioning at a high level' },
@@ -21,10 +22,29 @@ export class DaytimeSleepinessPage implements OnInit {
   { level: 6, description: 'Sleepy and fighting sleep' },
   { level: 7, description: 'Almost asleep' }
   ];
+  useCurrentTime = true;
+  currentTime = new Date();
+  selectedTime = new Date().toISOString();
 
   constructor() { }
-
+  
   ngOnInit() {
+    setInterval(() => {
+      this.currentTime = new Date();
+    }, 1000);
+  }
+
+  saveEntry() {
+    const timestamp = this.useCurrentTime
+      ? new Date().toISOString()
+      : this.selectedTime;
+
+    const entry = {
+      time: timestamp,
+      sleepiness: this.sleepinessLevel
+    };
+
+    console.log(entry);
   }
 
 }
