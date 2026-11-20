@@ -10,16 +10,15 @@
 
   <div class="ion-padding">
     <h2><strong>Sleepiness</strong></h2>
-    <p>Rate your daytime sleepiness.</p>
 
     <!-- log time of sleepiness -->
     <ion-item>
-      <ion-label position="stacked">Use Current Time</ion-label>
+      <ion-label class="time-label" position="stacked">Use Current Time</ion-label>
       <ion-toggle [(ngModel)]="useCurrentTime"></ion-toggle>
     </ion-item>
 
     <ion-item *ngIf="!useCurrentTime">
-      <ion-label position="stacked">Custom Time</ion-label>
+      <ion-label class="time-label" position="stacked">Custom Time</ion-label>
       <ion-datetime
         presentation="date-time"
         [(ngModel)]="selectedTime">
@@ -27,24 +26,28 @@
     </ion-item>
 
     <ion-item *ngIf="useCurrentTime">
-      <ion-label>
+      <ion-label class="time-label">
         Current Time: {{ currentTime | date:'short' }}
       </ion-label>
     </ion-item>
 
-      <!-- save time and date -->
-    <div class="save-button-container">
-      <ion-button size="medium" (click)="saveEntry()">
-        Save Time and Date
-      </ion-button>
-    </div>
+    <div class="big-spacer"></div>
 
+    <p>Rate your daytime sleepiness below.</p>
     <!-- log rating of sleepiness -->
-    <ion-radio-group [(ngModel)]="sleepinessLevel">
-        <ion-radio *ngFor="let option of sleepinessOptions" labelPlacement="end" justify="start" [value]="option.level" class="sleepiness-radio">
-          {{ option.level }} - {{ option.description }}
-      </ion-radio>
-    </ion-radio-group>
+    <div class="wheel-container">
+      <div
+        *ngFor="let option of sleepinessOptions" 
+        #wheelItem
+        class="wheel-item"
+        [class.selected]="sleepinessLevel === option.level"
+        (click)="selectSleepiness(option.level, wheelItem)">
+
+        <div class="level">{{ option.level }}</div>
+        <div class="description">{{ option.description }}</div>
+
+      </div>
+    </div>
 
   <!-- leave additional comment about sleepiness -->
 

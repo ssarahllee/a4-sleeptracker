@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar, IonButtons, IonBackButton, IonRadioGroup, IonList, IonItem, IonRadio, IonLabel, IonToggle, IonDatetime, IonButton} from '@ionic/angular/standalone';
+import { IonContent, IonHeader, IonTitle, IonToolbar, IonButtons, IonBackButton, IonItem, IonLabel, IonToggle, IonDatetime, IonButton, IonCard, IonCardContent} from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-daytime-sleepiness',
   templateUrl: './daytime-sleepiness.page.html',
   styleUrls: ['./daytime-sleepiness.page.scss'],
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonButtons, IonBackButton, IonRadioGroup, IonList, IonItem, IonRadio, IonLabel, IonToggle, IonDatetime, IonButton]
+  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonButtons, IonBackButton, IonItem, IonLabel, IonToggle, IonDatetime, IonButton, IonCard, IonCardContent]
 })
 export class DaytimeSleepinessPage implements OnInit {
 
@@ -32,6 +32,15 @@ export class DaytimeSleepinessPage implements OnInit {
     setInterval(() => {
       this.currentTime = new Date();
     }, 1000);
+  }
+
+  selectSleepiness(level:number, element: HTMLElement) {
+    this.sleepinessLevel = level;
+
+    element.scrollIntoView({
+      behavior: 'smooth',
+      block: 'center'
+    });
   }
 
   saveEntry() {
