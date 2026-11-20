@@ -55,7 +55,7 @@ export class SleepService {
       SleepService.AllSleepinessData = savedLogs.map((log: any) => {
         const record = new StanfordSleepinessData(
           log.loggedValue,
-          new Date(log.loggedAt)
+          new Date(log.loggedAt),
         );
         record.id = log.id;
         return record;
@@ -92,8 +92,8 @@ export class SleepService {
 
   public async logOvernightData(sleepData: OvernightSleepData): Promise<void> {
     await this.overnightLoaded;
-    SleepService.AllSleepData.push(sleepData);
-    SleepService.AllOvernightData.push(sleepData);
+    SleepService.AllSleepData.unshift(sleepData);
+    SleepService.AllOvernightData.unshift(sleepData);
     try {
       await Preferences.set({
         key: this.overnightKey,
@@ -106,10 +106,12 @@ export class SleepService {
     }
   }
 
-  public async logSleepinessData(sleepData: StanfordSleepinessData): Promise<void> {
+  public async logSleepinessData(
+    sleepData: StanfordSleepinessData,
+  ): Promise<void> {
     await this.sleepinessLoaded;
-    SleepService.AllSleepData.push(sleepData);
-    SleepService.AllSleepinessData.push(sleepData);
+    SleepService.AllSleepData.unshift(sleepData);
+    SleepService.AllSleepinessData.unshift(sleepData);
     try {
       await Preferences.set({
         key: this.sleepinessKey,
