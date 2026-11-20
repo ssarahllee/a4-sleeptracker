@@ -60,6 +60,7 @@ export class DaytimeSleepinessPage implements OnInit {
       // use SleepService to saved the logs
       this.sleepService.logSleepinessData(sleepData);
 
+      this.sleepinessLevel = null; // resets after save is successful
       this.message = 'Sleepiness rating logged successfully!';
   }
 
