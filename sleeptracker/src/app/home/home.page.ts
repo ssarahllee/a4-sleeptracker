@@ -2,9 +2,9 @@ import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { signal } from '@angular/core';
 import { Preferences } from '@capacitor/preferences';
-import { Storage } from '@ionic/storage-angular';
-import { StorageService } from '../services/storage.service';
+// import { StorageService } from '../services/storage.service';
 import { FormsModule } from '@angular/forms';
+
 import {
   IonHeader,
   IonToolbar,
@@ -21,6 +21,7 @@ import {
   IonButton,
   IonButtons,
   IonText,
+  IonInput
 } from '@ionic/angular/standalone';
 import { SleepService } from '../services/sleep.service';
 import { SleepData } from '../data/sleep-data';
@@ -29,6 +30,7 @@ import { StanfordSleepinessData } from '../data/stanford-sleepiness-data';
 
 @Component({
   selector: 'app-home',
+  standalone: true,
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
   imports: [
@@ -48,7 +50,8 @@ import { StanfordSleepinessData } from '../data/stanford-sleepiness-data';
     IonButton,
     IonButtons,
     IonText,
-    FormsModule
+    FormsModule,
+    IonInput
   ],
 })
 export class HomePage {
@@ -56,7 +59,7 @@ export class HomePage {
   nameKey:string = "name";
   name:string="";
 
-  constructor(public sleepService: SleepService, private storage: StorageService) {
+  constructor(public sleepService: SleepService) {
     Preferences.get({
       key: this.nameKey
     }).then((resultName) => {
@@ -68,15 +71,14 @@ export class HomePage {
         this.nameSaved.set(true);
       }
     });
-    this.init();
   }
   
-  async init() {
-  await this.storage.create();
-  }
 
   async saveName() {
     console.log(`saved name: ${this.name}`);
+    if (!this.name.trim()) {
+      return;
+    }
     try {
       await Preferences.set({
       key: 'name',
@@ -100,11 +102,10 @@ export class HomePage {
     this.name = "";
 
     // clear ionic storage data
-    await this.storage.clear();
+    // await this.storage.reset();
   }
 
   async ngOnInit() {
-    await this.storage.create();
     console.log(this.allSleepData);
   }
 

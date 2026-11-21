@@ -7,20 +7,21 @@
 
   <div class="ion-padding">
     @if(nameSaved()) {
-      <h2><strong>Good {{time_greeting}}, {{name}}!</strong></h2>
-        <div class="save-button-container">
-          <ion-button size="medium" (click)="clearData()">
-            Reset data
+      <div class="name-row">
+        <h2><strong>Good morning, {{name}}!</strong></h2>
+        <ion-button size="small" (click)="clearData()">
+            Reset Name
           </ion-button>
-        </div>
+      </div>
+      
     }
     @else {
-      <ion-input [(ngModel)]="name" placeholder="Enter your name"></ion-input>
-      <div class="save-button-container">
-        <ion-button size="medium" (click)="saveName()">
-          Save Sleep Log
+      <div class="name-row">
+        <ion-input [(ngModel)]="name" placeholder="Enter your name"></ion-input>
+        <ion-button size="small" (click)="saveName()">
+          Save Name
         </ion-button>
-    </div>
+      </div>
     }
     <ion-grid>
       <ion-row>

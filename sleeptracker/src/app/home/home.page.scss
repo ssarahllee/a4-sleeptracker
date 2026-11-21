@@ -1,6 +1,11 @@
-.save-button-container {
-  margin-top: 30px;
-  text-align: center;
+.name-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.name-row h2 {
+  margin: 0;
 }
 
 #container {
