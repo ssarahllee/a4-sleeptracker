@@ -12,7 +12,7 @@
 - 1/1 A readme and demo video which explains how these features were implemented and their design rationale
 
 2. How long, in hours, did it take you to complete this assignment?
-18
+20
 
 
 3. What online resources did you consult when completing this assignment? (list specific URLs)
@@ -35,49 +35,49 @@ your history cover: https://www.shutterstock.com/image-vector/procrastination-do
 
 
 4. What classmates or other individuals did you consult as part of this assignment? What did you discuss?
-We consulted each other because we worked as a pair.
+- We consulted each other because we worked as a pair.
 
 
 5. Is there anything special we need to know in order to run your code?
-Please view our app in phone view (Inspect -> dimensions: iphone 16)
+- Please view our app in phone view (Inspect -> dimensions: iphone 16)
 
 --Aim for no more than two sentences for each of the following questions.--
 
 
 6. Did you design your app with a particular type of user in mind? If so, whom?
-We didn't design our app with a particular type of user in mind, but we wanted to created 
-designs that are minimalistic and easily accessible/usable. Our layout resembles various health
-or fitness apps, so our users would also be familiar with and enjoy those types of apps.
+- We didn't design our app with a particular type of user in mind, but we created a minimalistic and easily accessible design for usage during the day.
+- Our layout resembles various health or fitness apps, so our users would also be familiar with and enjoy those types of apps.
 
 
 7. Did you design your app specifically for iOS or Android, or both?
-Our app was designed specifically for iOS, as we don't have a navigation bar and emphasized the look
-of simplicity and clear hierarchy. Our UI also utilizes that of an iOS, such as a top left back button
-as well as the typography of our pages.
+- Our app was designed specifically for iOS, as we don't have a navigation bar and emphasized the look
+of simplicity and clear hierarchy. 
+- Our UI also utilizes that of an iOS, such as a top left back button as well as the typography of our pages.
 
 
 8. How can a person log overnight sleep in your app? Why did you choose to support logging overnight sleep in this way?
-A person can log their overnight sleep by selecting their bedtime and wake-up date and time using the calendar (date/time) picker
-and then pressing the "Save Sleep Log" button. We chose to support logging overnight sleep in this way because the user
+- A person can log their overnight sleep by selecting their bedtime and wake-up date and time using the 2 collapsed calendar pickers (to maintain clean + well spaced layout compared to full calendars)
+and then pressing the "Save Sleep Log" button, with the quick option to undo their log. 
+- We chose to support logging overnight sleep in this way because the user
 can log both times right after they wake up, without having to remember to log the bedtime before sleeping.
 
 
 9. How can a person log sleepiness during the day in your app? Why did you choose to support logging sleepiness in this way?
-Someone can log sleepiness by first listing the time/date (either automatically doing the current time or setting custom time),
-and then scroll through a set wheel with ratings based on the Stanford Sleepiness Scale.
-We chose to support a quick and convenient style that both shortcuts setting the current time and lets users quickly scroll for a rating because
-users are likely logging their daily sleepiness on the go throughout their whole day. 
+- Someone can log sleepiness by logging the time/date (either quickly choosing the current time or setting custom time),
+scroll through a set wheel with ratings based on the Stanford Sleepiness Scale, and save their log (or undo it for the next 5 seconds).
+- We chose to support a quick and convenient style that shortcuts setting the current time and lets users quickly scroll rating descriptions because
+users are likely logging their daily sleepiness multiple times throughout their day and would prefer a quick selection rather than typing or remembering numbers. 
 
 
 10. How can a person view the data they logged in your app? Why did you choose to support viewing logged data in this way?
-We organized the overnight sleep and sleepiness logs using collapsible sections, so that in the case where the data gets long,
-the user can reduce the scrolling and just focus on the category they're interested in viewing. The overnight sleep log shows
-entries (ordered from the most recent date/time) of the user's bedtime, wake-up time, and total hours of sleep (so that the user
+- We organized the overnight sleep and sleepiness logs using collapsible sections, so that in the case where the data gets long,
+the user can reduce the scrolling and just focus on the category they're interested in viewing. 
+- The overnight sleep log shows entries (ordered from the most recent date/time) of the user's bedtime, wake-up time, and total hours of sleep (so that the user
 doesn't need to manually count it), and the sleepiness section shows the rating the user personally selected in the daytime and the time of rating.
 
 
 11. Which feature choose--using a native device resource, backing up logged data, or both?
-We chose the feature of backing up logged data.
+- We chose the feature of backing up logged data.
 
 
 12. If you used a native device resource, what feature did you add? How does this feature change the app's experience for a user?
@@ -85,12 +85,13 @@ N/A
 
 
 13. If you backed up logged data, where does it back up to?
-We decided to use Capacitor Preferences to back up data locally on the users' device, meaning it uses the browsers' localStorage
-when running the app on the web. The data is saved as a JSON so that it can be retrieved and displayed on the history page even 
+- We decided to use Capacitor Preferences to back up data locally on the users' device, meaning it uses the browsers' localStorage
+when running the app on the web. 
+- The data is saved as a JSON so that it can be retrieved and displayed on the history page even 
 when the user repoens or refreshes the application.
 
 14. How does your app implement or follow principles of good mobile design?
-Our app implements principles of good mobile design by incorporating a clear visual hierarchy through action cards, a sufficient
-color contrast for accessibility, error prevention date/time pickers, as well as error messages that clearly explain to the user 
-what went wrong so that they can properly save their logs. We also use design components, like the homepage cards and
-collapsible sections in the history, to naintain design consistency and styling.
+- Our app implements principles of good mobile design by incorporating a clear visual hierarchy through action cards right on the front page, a sufficient
+color contrast for accessibility, uh-oh undo buttons for 5 seconds after saving a bedtime/rating log, error prevention date/time pickers,
+as well as error messages that clearly explain to the user what went wrong so that they can properly save their logs.
+- We also use design components, like the homepage cards and collapsible sections in the history, to maintain design consistency and styling.

@@ -28,6 +28,8 @@ export class DaytimeSleepinessPage implements OnInit {
   currentTime = new Date();
   selectedTime = '';
   message: string = '';
+  showUndo = false;
+  lastSleepinessLog: StanfordSleepinessData | null = null;
 
   constructor(private sleepService: SleepService) { }
 
@@ -62,8 +64,36 @@ export class DaytimeSleepinessPage implements OnInit {
       // use SleepService to saved the logs
       await this.sleepService.logSleepinessData(sleepData);
 
+      //save reference for undo
+      this.lastSleepinessLog = sleepData;
+
       this.message = 'Daytime sleepiness rating logged successfully!';
       this.sleepinessLevel = null; // resets after save is successful
+
+      // show undo button for 5 seconds
+      this.showUndo = true;
+      setTimeout(() => {
+        this.showUndo = false;
+        this.lastSleepinessLog = null;
+      }, 5000);
+  }
+
+  undoLastEntry() {
+  if (!this.lastSleepinessLog) {
+    return;
+  }
+
+  const index = SleepService.AllSleepData.indexOf(
+    this.lastSleepinessLog
+  );
+
+  if (index > -1) {
+    SleepService.AllSleepData.splice(index, 1);
+  }
+
+    this.message = 'Log removed.';
+    this.showUndo = false;
+    this.lastSleepinessLog = null;
   }
 
 }

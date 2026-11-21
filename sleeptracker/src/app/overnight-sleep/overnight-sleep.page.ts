@@ -38,6 +38,9 @@ export class OvernightSleepPage implements OnInit {
   bedtime: string = '';
   wakeUpTime: string = '';
   message: string = '';
+  showUndo = false;
+  lastSleepLog: OvernightSleepData | null = null;
+  
   constructor(private sleepService: SleepService) {}
 
   ngOnInit() {}
@@ -67,8 +70,16 @@ export class OvernightSleepPage implements OnInit {
     // use SleepService to saved the logs
     try {
       await this.sleepService.logOvernightData(sleepData);
-
       this.message = 'Overnight sleep logged successfully!';
+      this.lastSleepLog = sleepData;
+
+      // show undo button for 5 seconds
+      this.showUndo = true;
+
+      setTimeout(() => {
+        this.showUndo = false;
+        this.lastSleepLog = null;
+      }, 5000);
 
       // reset
       this.bedtime = '';
@@ -77,8 +88,24 @@ export class OvernightSleepPage implements OnInit {
       this.message = 'Unable to save your sleep log.';
       console.log(e);
     }
-
-    //this.sleepService.logOvernightData(sleepData);
-    //this.message = 'Overnight sleep logged successfully!';
   }
+
+  undoLastEntry() {
+  if (!this.lastSleepLog) {
+    return;
+  }
+
+  const index = SleepService.AllSleepData.indexOf(
+    this.lastSleepLog
+  );
+
+  if (index > -1) {
+    SleepService.AllSleepData.splice(index, 1);
+  }
+
+  this.message = 'Last sleep log removed.';
+  this.showUndo = false;
+  this.lastSleepLog = null;
+  }
+  
 }

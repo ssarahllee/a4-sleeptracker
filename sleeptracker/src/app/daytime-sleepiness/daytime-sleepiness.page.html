@@ -13,9 +13,9 @@
 
     <!-- log time of sleepiness -->
     <ion-item class="toggle-item">
-      <ion-label class="time-label" position="stacked"
-        >Use Current Time</ion-label
-      >
+      <ion-label class="time-label" position="stacked">
+        Use Current Time
+      </ion-label>
       <ion-toggle [(ngModel)]="useCurrentTime"></ion-toggle>
     </ion-item>
 
@@ -60,9 +60,16 @@
 
     <!-- save sleepiness -->
     <div class="save-button-container">
-      <ion-button size="medium" (click)="saveEntry()">
-        Save Sleepiness Rating
-      </ion-button>
+      @if (!showUndo) {
+        <ion-button size="medium" (click)="saveEntry()">
+          Save Sleepiness Rating
+        </ion-button>
+      }
+      @else {
+        <ion-button size="medium" (click)="undoLastEntry()">
+          Undo Rating
+        </ion-button>
+      }
     </div>
 
     <!-- feedback popup -->

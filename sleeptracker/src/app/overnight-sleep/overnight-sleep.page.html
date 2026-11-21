@@ -15,7 +15,11 @@
     <!-- bedtime -->
     <ion-item class="bedtime-section" lines="none">
       <ion-label class="time-label" position="stacked">Bedtime</ion-label>
-      <input type="datetime-local" [(ngModel)]="bedtime" aria-label="Bedtime" />
+      <input 
+      type="datetime-local"
+      [(ngModel)]="bedtime"
+      aria-label="Bedtime"
+      />
     </ion-item>
 
     <!-- wake up time -->
@@ -30,9 +34,20 @@
 
     <!-- save button -->
     <div class="save-button-container">
-      <ion-button size="medium" (click)="saveSleep()">
+      <!-- <ion-button size="medium" (click)="saveSleep()">
         Save Sleep Log
-      </ion-button>
+      </ion-button> -->
+
+      @if (!showUndo) {
+        <ion-button size="medium" (click)="saveSleep()">
+          Save Sleep Log
+        </ion-button>
+      }
+      @else {
+        <ion-button size="medium" (click)="undoLastEntry()">
+          Undo Log
+        </ion-button>
+      }
     </div>
 
     <!-- feedback popup -->
