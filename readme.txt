@@ -1,9 +1,5 @@
 --Readme document for Charlotte Huang, CHARLYH3@UCI.EDU (85298239) & Sarah Lee, sarahsl7@uci.edu (11842214)--
 
-to-do list
-- saving name function
-- good morning/night function on home page
-
 1. How many assignment points do you believe you completed (replace the *'s with your numbers)?
 
 10/10
@@ -16,7 +12,7 @@ to-do list
 - 1/1 A readme and demo video which explains how these features were implemented and their design rationale
 
 2. How long, in hours, did it take you to complete this assignment?
-16
+18
 
 
 3. What online resources did you consult when completing this assignment? (list specific URLs)
