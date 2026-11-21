@@ -83,13 +83,15 @@ export class DaytimeSleepinessPage implements OnInit {
     return;
   }
 
-  const index = SleepService.AllSleepData.indexOf(
-    this.lastSleepinessLog
-  );
+  let index = SleepService.AllSleepData.indexOf(this.lastSleepinessLog);
+    if (index > -1) {
+      SleepService.AllSleepData.splice(index, 1);
+    }
 
-  if (index > -1) {
-    SleepService.AllSleepData.splice(index, 1);
-  }
+    index = SleepService.AllSleepinessData.indexOf(this.lastSleepinessLog);
+    if (index > -1) {
+      SleepService.AllSleepinessData.splice(index, 1);
+    }
 
     this.message = 'Log removed.';
     this.showUndo = false;

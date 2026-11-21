@@ -95,13 +95,15 @@ export class OvernightSleepPage implements OnInit {
     return;
   }
 
-  const index = SleepService.AllSleepData.indexOf(
-    this.lastSleepLog
-  );
+  let index = SleepService.AllSleepData.indexOf(this.lastSleepLog);
+    if (index > -1) {
+      SleepService.AllSleepData.splice(index, 1);
+    }
 
-  if (index > -1) {
-    SleepService.AllSleepData.splice(index, 1);
-  }
+    index = SleepService.AllOvernightData.indexOf(this.lastSleepLog);
+    if (index > -1) {
+      SleepService.AllOvernightData.splice(index, 1);
+    }
 
   this.message = 'Last sleep log removed.';
   this.showUndo = false;
