@@ -16,7 +16,7 @@ to-do list
 - 1/1 A readme and demo video which explains how these features were implemented and their design rationale
 
 2. How long, in hours, did it take you to complete this assignment?
-13
+15
 
 
 3. What online resources did you consult when completing this assignment? (list specific URLs)
